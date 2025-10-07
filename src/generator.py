@@ -1,5 +1,3 @@
-# generator.py
-
 import os
 import re
 from typing import List, Literal, Tuple
