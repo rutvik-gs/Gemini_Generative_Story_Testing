@@ -6,6 +6,6 @@
 
 ## How to run this project ?
 -   Export your Gemini API key first. Run `export GEMINI_API_KEY={Your API Key Goes here}`
-    -   For Windows `set GEMINI_API_KEY={Your API Key Goes here}`
+    -   For Windows `Set-Item -Path Env:GEMINI_API_KEY -Value "{Your API Key Goes here}"`
 -   Run `uv sync`
 -   Once all packages are resolved run `uv run python src/main.py`
