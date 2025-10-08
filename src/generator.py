@@ -4,6 +4,7 @@ from typing import List, Literal, Tuple
 from pydantic import BaseModel, Field
 from google import genai
 from google.genai import types
+from textatistic import Textatistic
 
 from prompts import SYSTEM_RULES, ASL_HINTS, build_user_instructions
 from wordBank import LEVELS, WORD_BANK, LEVEL_POLICY, LevelEnum
@@ -115,6 +116,8 @@ def generate_story(topic: str, level: str, max_retries: int = 3, model: str = "g
 
         ok, errors, plan = validate_story(plan)
         if ok:
+            storyScore = Textatistic(plan.story_text).dalechall_score
+            print(f'Story Score: {storyScore}')
             return plan, attempt
 
         last_errors = errors
